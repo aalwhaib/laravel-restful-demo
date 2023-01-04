@@ -12,3 +12,5 @@ git push -u origin main
 php artisan migrate
 
 php artisan serve
+
+php artisan make:model Petition -mfs
