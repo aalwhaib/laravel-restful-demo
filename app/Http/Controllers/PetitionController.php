@@ -19,8 +19,9 @@ class PetitionController extends Controller
         // $petitions = Petition::all();
         // return view('petitions.index')->with('petitions', $petitions);
 
-        //return new PetitionCollection(Petition::all());
-        return PetitionResource::collection(Petition::all());
+        //return PetitionResource::collection(Petition::all());
+        // return new PetitionCollection(Petition::all());
+        return response()->json(new PetitionCollection(Petition::all()), 200);
     }
 
     /**
@@ -31,7 +32,11 @@ class PetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $petition = Petition::create($request->only([
+            'title', 'description', 'category', 'author', 'signees',
+        ]));
+
+        return new PetitionResource($petition);
     }
 
     /**
@@ -42,7 +47,7 @@ class PetitionController extends Controller
      */
     public function show(Petition $petition)
     {
-        //
+        return new PetitionResource($petition);
     }
 
     /**
@@ -54,7 +59,11 @@ class PetitionController extends Controller
      */
     public function update(Request $request, Petition $petition)
     {
-        //
+        $petition->update($request->only([
+            'title', 'description', 'category', 'author', 'signees',
+        ]));
+
+        return new PetitionResource($petition);
     }
 
     /**
@@ -65,6 +74,8 @@ class PetitionController extends Controller
      */
     public function destroy(Petition $petition)
     {
-        //
+        $petition->delete();
+
+        return response()->json(null, 204);
     }
 }

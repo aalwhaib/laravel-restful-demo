@@ -17,6 +17,8 @@ class PetitionCollection extends ResourceCollection
         //return parent::toArray($request);
         return [
             'data' => $this->collection,
+            'varsion' => '0.1.1',
+            'author' => 'Ahmed Alwahib',
         ];
     }
 }
