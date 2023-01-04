@@ -1,0 +1,14 @@
+
+composer create-project laravel/laravel --prefer-dist laravel-demo 9
+cd laravel-demo
+npm i
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/aalwhaib/laravel-restful-demo.git
+git push -u origin main
+
+php artisan migrate
+
+php artisan serve
