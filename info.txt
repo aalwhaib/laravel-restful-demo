@@ -14,3 +14,4 @@ php artisan migrate
 php artisan serve
 
 php artisan make:model Petition -mfs
+php artisan make:Controller PetitionController --api --model=Petition
