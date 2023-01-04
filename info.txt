@@ -22,3 +22,10 @@ php artisan make:resource PetitionCollection
 php artisan migrate
 
 composer require doctrine/dbal
+
+
+php artisan make:migration change_category_type_in_petitions
+
+php artisan db:seed
+
+php artisan db:seed --class=PetitionSeeder
