@@ -15,3 +15,10 @@ php artisan serve
 
 php artisan make:model Petition -mfs
 php artisan make:Controller PetitionController --api --model=Petition
+php artisan make:resource PetitionResource
+php artisan make:resource PetitionCollection
+
+
+php artisan migrate
+
+composer require doctrine/dbal
