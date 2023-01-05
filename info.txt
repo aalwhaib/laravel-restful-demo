@@ -32,3 +32,8 @@ php artisan db:seed --class=PetitionSeeder
 
 
 php artisan route:list
+
+php artisan make:model Author -mfs
+php artisan make:controller AuthorController --api --model=Author
+php artisan make:resource AuthorResource
+php artisan make:resource AuthorCollection
